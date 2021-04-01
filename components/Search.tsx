@@ -17,7 +17,12 @@ const SearchBar: React.FC = () => {
   return (
     <>
       <div className={styles.row}>
-        <input type="text" value={cardInput} onChange={handleCardChange} />
+        <input
+          className={styles.input}
+          onChange={handleCardChange}
+          type="text"
+          value={cardInput}
+        />
 
         <button className={styles.button} onClick={handleCheck}>
           Check

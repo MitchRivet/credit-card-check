@@ -1,11 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import SearchBar from "../components/Search";
+import { cardDefs } from "../utils/creditCardCheck";
 import {
   visaExample,
   americanExpressExample,
   masterCardExample,
   discoverCardExample,
+  visaElectronExamplePrefixLength4,
 } from "../constants";
 
 export default function Home() {
@@ -27,6 +29,14 @@ export default function Home() {
             <p>{visaExample}</p>
           </div>
           <div className={styles.card}>
+            <h3>Visa Electron</h3>
+            <p>{visaElectronExamplePrefixLength4}</p>
+            <p className={styles.small}>
+              (test prefixes are:
+              {cardDefs.VISA_ELECTRON.prefix.map((p) => ` ${p}`)})
+            </p>
+          </div>
+          <div className={styles.card}>
             <h3>American Express</h3>
             <p>{americanExpressExample}</p>
           </div>
@@ -42,29 +52,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
-
-{
-  /* <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a> */
 }

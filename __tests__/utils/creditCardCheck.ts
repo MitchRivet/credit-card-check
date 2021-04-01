@@ -5,6 +5,8 @@ import {
   discoverCardExample,
   masterCardExample,
   americanExpressExample,
+  visaElectronExamplePrefixLength4,
+  visaElectronExamplePrefixLength6,
 } from "../../constants";
 
 describe("checking credit card check", () => {
@@ -14,6 +16,17 @@ describe("checking credit card check", () => {
   it("should return key for visa", () => {
     expect(checkCardNaive(visaExample)).toBe("VISA");
   });
+  it("should return key for visa electron with the 4130 prefix", () => {
+    expect(checkCardNaive(visaElectronExamplePrefixLength4)).toBe(
+      "VISA_ELECTRON"
+    );
+  });
+  it("should return key for visa electron with the 403677 prefix", () => {
+    expect(checkCardNaive(visaElectronExamplePrefixLength6)).toBe(
+      "VISA_ELECTRON"
+    );
+  });
+
   it("should return unknown for fake card number", () => {
     expect(checkCardNaive(discoverCardExample)).toBe("DISCOVER");
   });
